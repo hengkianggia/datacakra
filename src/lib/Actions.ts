@@ -8,7 +8,13 @@ export const Login = async (email: string, password: string) => {
   return res;
 };
 
-export const getArticle = async (params: Record<string, unknown> = {}) => {
-  const res = await get("/api/articles", params);
+export const getArticle = async ({
+  params = {},
+  token,
+}: {
+  params?: Record<string, unknown>;
+  token: string;
+}) => {
+  const res = await get("/api/articles", params, token);
   return res;
 };
