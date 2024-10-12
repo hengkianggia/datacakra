@@ -4,7 +4,7 @@ import React from "react";
 
 const LoginPage = () => {
   return (
-    <Div full center className="min-h-screen">
+    <Div full center className="min-h-[50vh]">
       <LoginForm />
     </Div>
   );

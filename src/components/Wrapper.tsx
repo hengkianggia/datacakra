@@ -12,6 +12,7 @@ interface WrapperProps extends React.HTMLAttributes<HTMLDivElement> {
   centerColumn?: boolean;
   between?: boolean;
   itemsCenter?: boolean;
+  justifyCenter?: boolean;
   grid?: boolean;
 }
 
@@ -26,6 +27,7 @@ const Wrapper = ({
   centerColumn,
   between,
   itemsCenter,
+  justifyCenter,
   grid,
 }: WrapperProps) => {
   return (
@@ -41,6 +43,7 @@ const Wrapper = ({
         centerColumn && `flex flex-col justify-center items-center`,
         between && `flex justify-between`,
         itemsCenter && `items-center`,
+        justifyCenter && `justify-center`,
         grid && `grid`
       )}
     >

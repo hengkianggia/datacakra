@@ -2,12 +2,11 @@ import Div from "@/components/Div";
 import ListArticle from "@/components/ListArticle";
 import Wrapper from "@/components/Wrapper";
 import { getArticle } from "@/lib/Actions";
-import { cookies } from "next/headers";
+import { getCookies } from "@/lib/helper";
 import React from "react";
 
 const ArticlePage = async () => {
-  const cookieStore = cookies();
-  const jwtToken = cookieStore.get("jwt")?.value ?? "";
+  const jwtToken = getCookies();
   const article = await getArticle({
     params: { populate: "*" },
     token: jwtToken,
@@ -24,6 +23,8 @@ const ArticlePage = async () => {
               date={item.publishedAt}
               title={item.title}
               image={item.cover_image_url}
+              category={item?.category?.name}
+              user={item?.user?.username}
             />
           );
         })}
